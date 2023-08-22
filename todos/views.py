@@ -17,6 +17,7 @@ def todos(request):
     if is_ajax:
         if request.method == 'GET':
             todos = list(Todo.objects.all().values())
+            print({'context': todos})
             return JsonResponse({'context': todos})
         if request.method == 'POST':
             data = json.load(request)
